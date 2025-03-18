@@ -1,0 +1,25 @@
+<div class="flex justify-center m-10">
+    <table class="table-auto border justify-center w-[50%] border-black">
+        <thead class="bg-red-600 text-white">
+            <tr>
+                <th class="border border-black border-r-transparent p-2">
+                    No.
+                </th>
+                <th class="border border-black border-r-transparent p-2">
+                    Name
+                </th>
+                <th class="border border-black p-2">
+                    Details
+                </th>
+            </tr>
+        </thead>
+        <tbody class="text-center capitalize">
+            <tr *ngFor="let pokemon of pokemons; let i = index">
+                <td class="font-bold border border-black border-r-transparent">{{i +1}}</td>
+                <td class="border border-black border-r-transparent">{{pokemon.name}}</td>
+                <td class="border border-black border-l-transparent"><button (click)="pokemon_info()"><img class="size-5 flex justify-center items-center" src="/icons/pokeball.png" alt="See more.."></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
