@@ -17,9 +17,10 @@
             <tr *ngFor="let pokemon of pokemons; let i = index">
                 <td class="font-bold border border-black border-r-transparent">{{i +1}}</td>
                 <td class="border border-black border-r-transparent">{{pokemon.name}}</td>
-                <td class="border border-black border-l-transparent"><button (click)="pokemon_info()"><img class="size-5 flex justify-center items-center" src="/icons/pokeball.png" alt="See more.."></button></td>
+                <td class="border border-black border-l-transparent"><button (click)="openModal(pokemon.url, pokemon.name)"><img class="size-5 flex justify-center items-center" src="/icons/pokeball.png" alt="See more.."></button></td>
             </tr>
         </tbody>
     </table>
 </div>
+<app-pokemon-modal></app-pokemon-modal>
 

@@ -13,4 +13,8 @@ export class PokemonService {
   getPokemons() : Observable<any>{
     return this.http.get<any>("https://pokeapi.co/api/v2/pokemon")
   }
+
+  getPokemonInfo(url: string): Observable<any>{
+    return this.http.get<any>(url)
+  }
 }

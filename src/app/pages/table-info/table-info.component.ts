@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from '../../service/pokemon.service';
 import { CommonModule } from '@angular/common';
+import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component';
 
 @Component({
   selector: 'app-table-info',
-  imports: [CommonModule],
+  imports: [CommonModule, PokemonModalComponent],
+  standalone: true,
   templateUrl: './table-info.component.html',
   styleUrl: './table-info.component.css'
 })
 export class TableInfoComponent implements OnInit{
 
-pokemon_info() {
-console.log("sirve");
-}
   pokemons : any[] = [];
 
   constructor( private pokemonService: PokemonService){};
+
+  @ViewChild(PokemonModalComponent) modal!: PokemonModalComponent;
 
   ngOnInit(): void {
     this.pokemonService.getPokemons().subscribe({
@@ -28,5 +29,13 @@ console.log("sirve");
       }
     }
     )
+  }
+
+
+  openModal(url: string, name:string){
+    this.modal.pokemon_info(url)
+    this.modal.visible=true
+    this.modal.pokemonName = name
+    console.log(name)
   }
 }
