@@ -1,6 +1,16 @@
 <div *ngIf="visible" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
     <div class="bg-white p-5 rounded flex justify-between items-center flex-col">
-        <p class="text-center font-bold capitalize">{{pokemonName}}</p>
+        <h2 class="text-center font-bold capitalize mb-2">{{pokemonName}}</h2>
+        <div class="items-start">
+            <p class="capitalize"><i>Specie: </i>{{pokemonInfo.species.name}} </p>
+            <p><i>Height: </i>{{pokemonInfo.height/10}} m</p>
+            <p><i>Weight: </i>{{pokemonInfo.weight/10}} kg</p>
+            <br>
+            <p><i>Abilities: </i></p>
+            <ul *ngFor="let ability of pokemonInfo.abilities" class="list-disc pl-5">
+                <li class="capitalize">{{ ability.ability.name }}</li>
+            </ul>
+        </div>
       <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
     </div>
   </div>

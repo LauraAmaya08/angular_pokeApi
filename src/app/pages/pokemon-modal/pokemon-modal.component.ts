@@ -19,10 +19,11 @@ export class PokemonModalComponent {
   pokemonInfo : any = {};
 
   pokemon_info(url: string) {
+    this.pokemonInfo = {};
     this.pokemonService.getPokemonInfo(url).subscribe({
       next: (data) => {
         this.pokemonInfo = data;
-        console.log(this.pokemonInfo)
+        console.log(this.pokemonInfo.abilities)
       },
       error: (error) => {
         console.error(error);
