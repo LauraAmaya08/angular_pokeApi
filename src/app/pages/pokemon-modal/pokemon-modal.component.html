@@ -1,17 +1,28 @@
 <div *ngIf="visible" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
-    <div class="bg-white p-5 rounded flex justify-between items-center flex-col">
+    <div class="bg-white p-5 rounded flex justify-between items-center flex-col w-[30%]">
         <h2 class="text-center font-bold capitalize mb-2">{{pokemonName}}</h2>
         <div class="items-start">
-            <p class="capitalize"><i>Specie: </i>{{pokemonInfo.species.name}} </p>
-            <p><i>Height: </i>{{pokemonInfo.height/10}} m</p>
-            <p><i>Weight: </i>{{pokemonInfo.weight/10}} kg</p>
-            <br>
-            <p><i>Abilities: </i></p>
-            <ul *ngFor="let ability of pokemonInfo.abilities" class="list-disc pl-5">
-                <li class="capitalize">{{ ability.ability.name }}</li>
+            <p class="capitalize"><i class="text-red-700 mt-1">Specie: </i>{{pokemonInfo.species.name}} </p>
+            <p><i class="text-red-700 mt-1">Height: </i>{{pokemonInfo.height/10}} m</p>
+            <p><i class="text-red-700 mt-1">Weight: </i>{{pokemonInfo.weight/10}} kg</p>
+            <p><i class="text-red-700 mt-1">Abilities: </i></p>
+            <ul class="list-disc pl-5">
+                <li *ngFor="let ability of pokemonInfo.abilities" class="capitalize">{{ ability.ability.name }}</li>
+            </ul>
+            <p><i class="text-red-700 mt-1">Forms: </i></p>
+            <ul class="list-disc pl-5">
+                <li *ngFor="let form of pokemonInfo.forms" class="capitalize">{{ form.name }}</li>
+            </ul>
+            <p><i class="text-red-700 mt-1">Types: </i></p>
+            <ul class="list-disc pl-5">
+                <li *ngFor="let types of pokemonInfo.types" class="capitalize">{{ types.type.name }}</li>
+            </ul>
+            <p><i class="text-red-700 mt-1">Some Movements: </i></p>
+            <ul class="grid grid-cols-2 gap-x-6 list-disc pl-5">
+                <li *ngFor="let moves of (pokemonInfo.moves?.slice(0,10))" class="capitalize">{{ moves.move.name }}</li>
             </ul>
         </div>
-      <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+      <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded" (click)="closeModal()">Close</button>
     </div>
   </div>
   
