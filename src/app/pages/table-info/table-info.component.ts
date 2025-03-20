@@ -2,10 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from '../../service/pokemon.service';
 import { CommonModule } from '@angular/common';
 import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component';
+import { PokemonFormComponent } from '../pokemon-form/pokemon-form.component';
 
 @Component({
   selector: 'app-table-info',
-  imports: [CommonModule, PokemonModalComponent],
+  imports: [CommonModule, PokemonModalComponent, PokemonFormComponent],
   standalone: true,
   templateUrl: './table-info.component.html',
   styleUrl: './table-info.component.css'
