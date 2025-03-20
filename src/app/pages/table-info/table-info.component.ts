@@ -17,6 +17,7 @@ export class TableInfoComponent implements OnInit{
 
   constructor( private pokemonService: PokemonService){};
 
+  //Permite acceder a los metodos del componente hijo, en este caso el modal
   @ViewChild(PokemonModalComponent) modal!: PokemonModalComponent;
 
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class TableInfoComponent implements OnInit{
     )
   }
 
-
+  
   openModal(url: string, name:string){
     this.modal.pokemon_info(url)
     this.modal.visible=true

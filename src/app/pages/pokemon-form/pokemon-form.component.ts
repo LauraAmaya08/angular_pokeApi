@@ -13,6 +13,8 @@ import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component'
 export class PokemonFormComponent {
   constructor( private pokemonService: PokemonService){};
   pokemonName: string = "";
+  
+  //Permite acceder a los metodos del componente hijo, en este caso el modal
   @ViewChild(PokemonModalComponent) modal!: PokemonModalComponent;
 
   onSubmit() {
