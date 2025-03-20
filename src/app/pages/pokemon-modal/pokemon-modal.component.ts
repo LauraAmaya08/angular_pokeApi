@@ -22,10 +22,16 @@ export class PokemonModalComponent {
     this.pokemonInfo = {};
     this.pokemonService.getPokemonInfo(url).subscribe({
       next: (data) => {
-        this.pokemonInfo = data;
-        console.log(this.pokemonInfo.abilities)
+        if(data == null){
+          this.pokemonInfo = null;
+        } else {
+          this.pokemonInfo = data;
+          console.log(this.pokemonInfo.abilities)
+        }
       },
       error: (error) => {
+        this.pokemonInfo = null;
+        this.visible = true;
         console.error(error);
       }
     }

@@ -1,4 +1,5 @@
 <div *ngIf="visible" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+    <ng-container *ngIf="pokemonInfo; else notFound">
     <div class="bg-white p-5 rounded flex justify-between items-center flex-col w-[30%]">
         <h2 class="text-center font-bold capitalize mb-2">{{pokemonName}}</h2>
         <div class="items-start">
@@ -24,6 +25,13 @@
         </div>
       <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded" (click)="closeModal()">Close</button>
     </div>
+    </ng-container>
+    <ng-template #notFound>
+        <div class="bg-white p-5 rounded w-[30%] text-center">
+          <p>Pokemon no encontrado :(</p>
+          <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded" (click)="closeModal()">Cerrar</button>
+        </div>
+      </ng-template>
   </div>
   
 
